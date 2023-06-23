@@ -104,7 +104,8 @@
             "no-console": "error",
             "@typescript-eslint/indent": "off",
             "import/extensions": 0,
-            "import/no-unresolved": "error"
+            "import/no-unresolved": "error",
+            "no-prototype-builtins": "off"
         }
     }]
 }

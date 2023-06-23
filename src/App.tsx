@@ -1,10 +1,13 @@
-import React from "react";
-import "./test.scss";
-import Icon from "@/icons/Icon";
-import img from "@/images/img.png";
+import Layout from "@/layout/Layout";
+import Hangman from "@/components/Hangman/Hangman";
+import "@/styles/main.scss";
 
 function App() {
-  return <h1>Hello React</h1>;
+  return (
+    <Layout>
+      <Hangman />
+    </Layout>
+  );
 }
 
 export default App;

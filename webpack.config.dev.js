@@ -22,6 +22,7 @@ module.exports = {
     new SpriteLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: "public/index.html",
+      favicon: "public/favicon.ico",
     }),
   ],
   devServer: {
