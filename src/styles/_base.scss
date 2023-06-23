@@ -31,7 +31,8 @@ body {
 }
 
 main.main {
-  background-image: linear-gradient(rgba($color-white, 0.85), rgba($color-white, 0.85)), url("../images/background/bg.avif");
+  background-image: linear-gradient(rgba($color-white, 0.85), rgba($color-white, 0.85)),
+    url("../images/background/bg.avif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -63,9 +64,9 @@ ul {
 }
 
 .container {
-    width: 100%;
-    max-width: 1440px;
-    padding-left: 120px;
-    padding-right: 120px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1440px;
+  padding-left: 120px;
+  padding-right: 120px;
+  margin: 0 auto;
 }

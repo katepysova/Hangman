@@ -1,48 +1,46 @@
 @import "src/styles/variables";
 
 .hangman {
-    &__container {
-        padding-top: 64px;
-        padding-bottom: 64px;
+  &__container {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 18px;
+  &__image {
+    max-height: 200px;
+  }
+
+  &__btn-container {
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  &__btn {
+    display: inline-block;
+    font-size: 18px;
+    padding: 12px;
+    border: 1px solid $color-black;
+    background-color: $color-blue;
+    color: $color-white;
+    border-radius: 4px;
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $color-light-grey;
     }
+  }
 
-    &__image {
-        max-height: 200px;
-        
-    }
-
-    &__btn-container {
-        max-width: 400px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 4px;
-    }
-
-    &__btn {
-        display: inline-block;
-        font-size: 18px;
-        padding: 12px;
-        border: 1px solid $color-black;
-        background-color: $color-blue;
-        color: $color-white;
-        border-radius: 4px;
-
-        &:disabled {
-            cursor: not-allowed;
-            background-color: $color-light-grey;
-        }
-    }
-
-    &__word {
-        display: flex;
-        align-self: center;
-        gap: 6px;
-    }
+  &__word {
+    display: flex;
+    align-self: center;
+    gap: 6px;
+  }
 }

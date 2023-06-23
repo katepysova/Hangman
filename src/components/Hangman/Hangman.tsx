@@ -44,7 +44,7 @@ function Hangman() {
         <img className="hangman__image" src={steps[nWrong]} alt="step" />
         <div>{nWrong}</div>
         <p className="hangman__word">
-        {!gameOver ? generateGuessedWord && generateGuessedWord() : answer}
+          {!gameOver ? generateGuessedWord && generateGuessedWord() : answer}
         </p>
         <div className="hangman__btn-container">{generateButtons && generateButtons()}</div>
       </div>
