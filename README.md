@@ -1,10 +1,10 @@
-# React TS Boilerplate
+# Hangman Game
 
 ## Installation
 
 1. Downloand zip:
 
-   `git@github.com:katepysova/React_TS_Boilerplate.git`
+   ``
 
 2. Change your current directory to this project directory.
 
