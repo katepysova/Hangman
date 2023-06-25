@@ -1,46 +1,57 @@
 @import "src/styles/variables";
 
 .hangman {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(rgba($color-white, 0.85), rgba($color-white, 0.85)),
+  url("../../images/background/bg.avif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+
   &__container {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 44px;
+    padding-bottom: 44px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 18px;
-  }
+    gap: 22px;
 
-  &__image {
-    max-height: 200px;
-  }
-
-  &__btn-container {
-    max-width: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px;
-  }
-
-  &__btn {
-    display: inline-block;
-    font-size: 18px;
-    padding: 12px;
-    border: 1px solid $color-black;
-    background-color: $color-blue;
-    color: $color-white;
-    border-radius: 4px;
-
-    &:disabled {
-      cursor: not-allowed;
-      background-color: $color-light-grey;
+    @media only screen and (max-width: $bp-mobile) {
+      gap: 16px;
     }
   }
 
+  &__step-image {
+    max-height: 180px;
+  }
+
   &__word {
-    display: flex;
-    align-self: center;
-    gap: 6px;
+    font-size: 24px;
+    letter-spacing: 16px;
+  }
+
+  &__reset-btn {
+    padding: 12px 24px;
+    font-size: 18px;
+    color: $color-white;
+    background-color: $color-pink;
+    border-radius: 6px;
+    border: 1px solid $color-black;
+    transition: all .2s;
+
+    &:hover {
+      background-color: $color-primary;
+      box-shadow: $box-shadow-btn-hover;
+      transform: translateY(-1.5px);
+    }
+
+    &:active {
+      box-shadow: $box-shadow-btn-active;
+      transform: translateY(1px);
+    }
   }
 }

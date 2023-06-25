@@ -105,7 +105,8 @@
             "@typescript-eslint/indent": "off",
             "import/extensions": 0,
             "import/no-unresolved": "error",
-            "no-prototype-builtins": "off"
+            "no-prototype-builtins": "off",
+            "@typescript-eslint/restrict-template-expressions": "off"
         }
     }]
 }

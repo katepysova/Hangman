@@ -1,16 +1,15 @@
 import { useState } from "react";
-import steps from "./steps";
+import Keyboard from "@/components/Hangman/Keyboard/Keyboard";
+import steps from "@/components/Hangman/steps";
+import generateRandomWord from "@/components/Hangman/words";
 import "./Hangman.scss";
 
-const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 const MAX_WRONG = 6;
 
 function Hangman() {
   const [nWrong, setNWrong] = useState(0);
   const [guessed, setGuessed] = useState({});
-  const [answer, setAnswer] = useState("animal");
-
-  const gameOver = nWrong >= MAX_WRONG;
+  const [answer, setAnswer] = useState(generateRandomWord());
 
   const handleGuess = (event: React.MouseEvent<HTMLButtonElement>): void => {
     const target = event.target as HTMLInputElement;
@@ -19,34 +18,49 @@ function Hangman() {
     setNWrong((state) => state + (answer.includes(ltr) ? 0 : 1));
   };
 
-  const generateGuessedWord = () =>
-    answer.split("").map((ltr) => (guessed.hasOwnProperty(ltr) ? ltr : "_"));
+  const isLetterIncluded = (letter: string, target: object) => target.hasOwnProperty(letter);
 
-  const generateButtons = () => {
-    return ALPHABET.split("").map((ltr) => (
-      <button
-        className="hangman__btn"
-        key={ltr}
-        type="button"
-        value={ltr}
-        onClick={handleGuess}
-        disabled={guessed.hasOwnProperty(ltr)}
-      >
-        {ltr}
-      </button>
-    ));
+  const generateGuessedWord = () =>
+    answer.split("").map((letter) => (isLetterIncluded(letter, guessed) ? letter : "_"));
+
+  const reset = () => {
+    setNWrong(0);
+    setGuessed({});
+    setAnswer(generateRandomWord);
   };
+
+  const isLooser = nWrong >= MAX_WRONG;
+  const isWinner = generateGuessedWord().join("") === answer;
+
+  let gameState: JSX.Element | string = (
+    <Keyboard
+      onLetterClick={handleGuess}
+      isLetterDisabled={(letter: string) => isLetterIncluded(letter, guessed)}
+    />
+  );
+  if (isLooser) gameState = "You Lose!";
+  if (isWinner) gameState = "You Win!";
 
   return (
     <section className="hangman">
       <div className="hangman__container container">
         <h1 className="heading-primary u-center">Hangman</h1>
-        <img className="hangman__image" src={steps[nWrong]} alt="step" />
-        <div>{nWrong}</div>
+        <img
+          className="hangman__step-image"
+          src={steps[nWrong]}
+          alt={`Hangman step - ${steps[nWrong]}`}
+        />
+        <h3 className="heading-tertiary u-center">
+          Wrong Guesses Count: <span>{nWrong}</span>
+        </h3>
         <p className="hangman__word">
-          {!gameOver ? generateGuessedWord && generateGuessedWord() : answer}
+          {(isLooser || isWinner) && answer}
+          {!(isWinner || isLooser) && generateGuessedWord && generateGuessedWord()}
         </p>
-        <div className="hangman__btn-container">{generateButtons && generateButtons()}</div>
+        {gameState}
+        <button type="button" className="hangman__reset-btn" onClick={reset}>
+          Restart?
+        </button>
       </div>
     </section>
   );
