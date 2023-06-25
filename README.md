@@ -2,9 +2,9 @@
 
 ## Installation
 
-1. Downloand zip:
+1. Clone repo or downloand zip:
 
-   ``
+   `git@github.com:katepysova/Hangman.git`
 
 2. Change your current directory to this project directory.
 
