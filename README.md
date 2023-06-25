@@ -1,5 +1,9 @@
 # Hangman Game
 
+Common Hangman Game Application.
+
+See [Project Demo](https://katepysova.github.io/Hangman/) serviced on GitHub Pages.
+
 ## Installation
 
 1. Clone repo or downloand zip:
@@ -22,8 +26,11 @@
 
 - `npm run dev` - to start the app on the localhost. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-- `npm run build` - to build the app for production to the `build` folder.
+- `npm run predeploy` - to build the app for production to the `dist` folder.
   Your app is ready to be deployed!
+
+- `npm run deploy` - to deploy the app on the [GitHub Pages](https://create-react-app.dev/docs/deployment/#github-pages).
+  See [Notes on client-side routing](https://create-react-app.dev/docs/deployment/#notes-on-client-side-routing).
 
 ## Additional
 
