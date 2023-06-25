@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(rgba($color-white, 0.85), rgba($color-white, 0.85)),
-  url("../../images/background/bg.avif");
+    url("../../images/background/bg.avif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -41,7 +41,7 @@
     background-color: $color-pink;
     border-radius: 6px;
     border: 1px solid $color-black;
-    transition: all .2s;
+    transition: all 0.2s;
 
     &:hover {
       background-color: $color-primary;
